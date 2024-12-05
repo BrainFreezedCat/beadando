@@ -1,14 +1,22 @@
-$(".gallery-wrap a").click(function(event){
-   var pop_img = $(this).attr('href');
-    $('body').append('<div class="pop_img_wrap"><div class="pop_img"><img src="'+pop_img+'"></div></div>');
-   $(".pop_img_wrap").click(function(event){
-    setTimeout(function(){
-        $(".pop_img_wrap").remove()
-    })
-   }
-);
-$(".pop_img").click(function(event){
-    return false
-});   
-    return false
-})
+$(document).ready(function () {
+  $("#myform").validate({
+    rules: {
+      fname: "required",
+      lname: "required",
+      email: { required: true, email: true },
+      password: { required: true, minlenght: 6 },
+      igen: "required",
+      mennyiseg: { required: true, min: 2 },
+    },
+    messages: {
+      fname: "Kérlek írd be a keresztneved!",
+      lname: "Kérlek írd be a vezetékneved!",
+      password: {
+        required: "Add meg a jelszavad!",
+        minlenght: "Írj hosszabb jelszót!",
+      },
+      email: "Kérlek az igazi email címed add meg!",
+      mennyiseg: "Legalább 2 emailt kell kérned!",
+    },
+  });
+});
